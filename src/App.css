@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+.controls {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.control-group {
+  margin-bottom: 10px;
+}
+
+.control-label {
+  margin-right: 10px;
+  color: white;
+}
+
+.control-input {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  padding: 5px;
+  width: 60px;
+}
