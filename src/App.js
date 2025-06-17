@@ -1,35 +1,42 @@
 import React, { useState } from 'react';
-import Box3D from './components/Box3D';
+import Scene3D from './components/Scene3D.jsx';
+import RoomControls from './components/controls/RoomControls';
+import TableControls from './components/controls/TableControls';
+import './App.css';
 
 function App() {
   const [longueur, setLongueur] = useState(10);
   const [largeur, setLargeur] = useState(6);
+  const [tableDistance, setTableDistance] = useState(2);
+  const [tableLongueur, setTableLongueur] = useState(2);
+  const [tableLargeur, setTableLargeur] = useState(1);
 
   return (
     <div>
-      <div style={{ position: 'absolute', zIndex: 1, padding: 10 }}>
-        <label>
-          Longueur :
-          <input
-            type="number"
-            value={longueur}
-            onChange={e => setLongueur(Number(e.target.value))}
-            min={1}
-            max={50}
-          />
-        </label>
-        <label style={{ marginLeft: 10 }}>
-          Largeur :
-          <input
-            type="number"
-            value={largeur}
-            onChange={e => setLargeur(Number(e.target.value))}
-            min={1}
-            max={50}
-          />
-        </label>
+      <div className="controls">
+        <RoomControls 
+          longueur={longueur} 
+          setLongueur={setLongueur}
+          largeur={largeur}
+          setLargeur={setLargeur}
+        />
+        <TableControls 
+          tableDistance={tableDistance}
+          setTableDistance={setTableDistance}
+          tableLongueur={tableLongueur}
+          setTableLongueur={setTableLongueur}
+          tableLargeur={tableLargeur}
+          setTableLargeur={setTableLargeur}
+          maxDistance={largeur}
+        />
       </div>
-      <Box3D longueur={longueur} largeur={largeur} />
+      <Scene3D 
+        longueur={longueur} 
+        largeur={largeur}
+        tableDistance={tableDistance}
+        tableLongueur={tableLongueur}
+        tableLargeur={tableLargeur}
+      />
     </div>
   );
 }
