@@ -6,75 +6,68 @@ function App() {
   const [longueur, setLongueur] = useState(10);
   const [largeur, setLargeur] = useState(6);
   const [tableDistance, setTableDistance] = useState(2);
-  const [tableLongueur, setTableLongueur] = useState(2);
-  const [tableLargeur, setTableLargeur] = useState(1);
+  const [tableLongueur, setTableLongueur] = useState(2);  // Ajouté
+  const [tableLargeur, setTableLargeur] = useState(1);    // Ajouté
 
   return (
-    <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
-      <div className="controls" style={{ position: 'absolute', zIndex: 2 }}>
+    <>
+      <div className="controls">
         <div>
-          <label htmlFor="longueur">
-            Longueur salle:
+          <label>
+            Longueur salle (m):
             <input
-              id="longueur"
-              name="longueur"
               type="number"
               value={longueur}
               onChange={e => setLongueur(Number(e.target.value))}
-              min={1}
-              max={50}
+              min={2}
+              max={15}
+              step={0.1}
             />
           </label>
-          <label htmlFor="largeur" style={{ marginLeft: '10px' }}>
-            Largeur salle:
+          <label style={{ marginLeft: '10px' }}>
+            Largeur salle (m):
             <input
-              id="largeur"
-              name="largeur"
               type="number"
               value={largeur}
               onChange={e => setLargeur(Number(e.target.value))}
-              min={1}
-              max={50}
+              min={2}
+              max={15}
+              step={0.1}
             />
           </label>
         </div>
         <div style={{ marginTop: '10px' }}>
-          <label htmlFor="tableDistance">
-            Distance table:
+          <label>
+            Distance table (m):
             <input
-              id="tableDistance"
-              name="tableDistance"
               type="number"
               value={tableDistance}
               onChange={e => setTableDistance(Number(e.target.value))}
-              min={0}
-              max={largeur}
+              min={0.5}
+              max={largeur - 1}
               step={0.1}
             />
           </label>
-          <label htmlFor="tableLongueur" style={{ marginLeft: '10px' }}>
-            Longueur table:
+          {/* Ajout des contrôles de dimensions de la table */}
+          <label style={{ marginLeft: '10px' }}>
+            Longueur table (m):
             <input
-              id="tableLongueur"
-              name="tableLongueur"
               type="number"
               value={tableLongueur}
               onChange={e => setTableLongueur(Number(e.target.value))}
-              min={0.5}
-              max={5}
+              min={0.6}  // Minimum raisonnable pour une table
+              max={3}    // Maximum raisonnable
               step={0.1}
             />
           </label>
-          <label htmlFor="tableLargeur" style={{ marginLeft: '10px' }}>
-            Largeur table:
+          <label style={{ marginLeft: '10px' }}>
+            Largeur table (m):
             <input
-              id="tableLargeur"
-              name="tableLargeur"
               type="number"
               value={tableLargeur}
               onChange={e => setTableLargeur(Number(e.target.value))}
-              min={0.5}
-              max={5}
+              min={0.4}  // Minimum raisonnable
+              max={1.5}  // Maximum raisonnable
               step={0.1}
             />
           </label>
@@ -87,7 +80,7 @@ function App() {
         tableLongueur={tableLongueur}
         tableLargeur={tableLargeur}
       />
-    </div>
+    </>
   );
 }
 
