@@ -157,28 +157,32 @@ const Scene3D = ({
     floor.position.set(longueur/2, 0, largeur/2);
     scene.add(floor);
 
-    // Back wall
+    // Back wall (mur du fond)
     const backWall = new THREE.Mesh(
-      new THREE.BoxGeometry(longueur, 3, 0.2),
+      new THREE.BoxGeometry(0.2, 3, largeur),  // dimensions inversées
       new THREE.MeshStandardMaterial({ color: 0xeeeeee })
     );
-    backWall.position.set(longueur/2, 1.5, 0);
+    backWall.position.set(0, 1.5, largeur/2);  // position du mur du fond
     scene.add(backWall);
 
-    // Right wall
+    // Right wall (mur de droite)
     const rightWall = new THREE.Mesh(
-      new THREE.BoxGeometry(0.2, 3, largeur),
+      new THREE.BoxGeometry(longueur, 3, 0.2),  // dimensions inversées
       new THREE.MeshStandardMaterial({ color: 0xeeeeee })
     );
-    rightWall.position.set(longueur, 1.5, largeur/2);
+    rightWall.position.set(longueur/2, 1.5, 0);  // position du mur de droite
     scene.add(rightWall);
 
-    // Table
+    // Table (maintenant par rapport au mur du fond)
     const table = new THREE.Mesh(
       new THREE.BoxGeometry(tableLongueur, 0.8, tableLargeur),
       new THREE.MeshStandardMaterial({ color: 0x8B4513 })
     );
-    table.position.set(longueur/2, 0.4, tableDistance + tableLargeur/2);
+    table.position.set(
+      tableDistance + tableLongueur/2,  // distance depuis le mur du fond
+      0.4,                              // hauteur fixe
+      largeur/2                         // centrée sur la largeur
+    );
     scene.add(table);
 
   }, [longueur, largeur, tableDistance, tableLongueur, tableLargeur]);
