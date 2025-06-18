@@ -31,7 +31,7 @@ const TableControls = ({
           value={tableLongueur}
           onChange={e => setTableLongueur(Number(e.target.value))}
           min={0.5}
-          max={5}
+          max={12}
           step={0.1}
         />
       </label>
@@ -43,7 +43,7 @@ const TableControls = ({
           value={tableLargeur}
           onChange={e => setTableLargeur(Number(e.target.value))}
           min={0.5}
-          max={5}
+          max={10}
           step={0.1}
         />
       </label>

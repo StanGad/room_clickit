@@ -56,7 +56,7 @@ function App() {
               value={tableLongueur}
               onChange={e => setTableLongueur(Number(e.target.value))}
               min={0.6}  // Minimum raisonnable pour une table
-              max={3}    // Maximum raisonnable
+              max={12}    // Maximum raisonnable
               step={0.1}
             />
           </label>
@@ -67,7 +67,7 @@ function App() {
               value={tableLargeur}
               onChange={e => setTableLargeur(Number(e.target.value))}
               min={0.4}  // Minimum raisonnable
-              max={1.5}  // Maximum raisonnable
+              max={10}  // Maximum raisonnable
               step={0.1}
             />
           </label>
